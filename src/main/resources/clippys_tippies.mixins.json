@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "clippys_tippies.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "client": [
+    "MixinConnectScreen",
+    "MixinDownloadTerrainScreen",
+    "MixinLoadingScreen",
+    "MixinProgressScreen",
+    "MixinSaveScreen"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
