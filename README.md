@@ -1,16 +1,6 @@
-# Fabric Example Mod
+# Clippy's Tippies
+### Because someone asked for it.
 
-## Setup
+A simple mod to add tips to loading screens.
 
-1. Edit build.gradle and mod.json to suit your needs.
-    * The "mixins" object can be removed from mod.json if you do not need to use mixins.
-    * Please replace all occurences of "modid" with your own mod ID - sometimes, a different string may also suffice.
-2. Run the following command:
-
-```
-./gradlew idea
-```
-
-## License
-
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
+Add tips by editing the *simple_tips.txt* file at *config*.
