@@ -10,5 +10,5 @@ Tips are located under `.minecraft/resources/tippy/tips`, in JSON files. In orde
   { "text": "Tip A" }, 
   { "text": "Tip B" }, 
   { "text": "Tip C" }
- ]
+]
 ```
