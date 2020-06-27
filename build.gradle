@@ -1,0 +1,80 @@
+plugins {
+	id 'fabric-loom' version '0.4-SNAPSHOT'
+	id 'maven-publish'
+}
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+archivesBaseName = project.mod_name + "-" + project.mod_version + "+" + project.version_meta
+group = project.mod_group
+
+repositories {
+	maven {
+		name = "Spinnery"
+		url "https://dl.bintray.com/spinnery/Spinnery"
+	}
+}
+
+minecraft {
+}
+
+dependencies {
+	// Minecraft
+	minecraft "com.mojang:minecraft:${minecraft_version}"
+
+	// Yarn
+	mappings "net.fabricmc:yarn:${yarn_mappings}:v2"
+
+	// Fabric Loader
+	modImplementation "net.fabricmc:fabric-loader:${loader_version}"
+
+	// Fabric API
+	modImplementation "net.fabricmc.fabric-api:fabric-api:${api_version}"
+
+	// Spinnery
+	modCompile "com.github.vini2003:spinnery:${project.spinnery_version}"
+}
+
+processResources {
+	inputs.property "version", project.version
+
+	from(sourceSets.main.resources.srcDirs) {
+		include "fabric.mod.json"
+		expand "version": project.version
+	}
+
+	from(sourceSets.main.resources.srcDirs) {
+		exclude "fabric.mod.json"
+	}
+}
+
+tasks.withType(JavaCompile) {
+	options.encoding = "UTF-8"
+}
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+	classifier = "sources"
+	from sourceSets.main.allSource
+}
+
+jar {
+	from "LICENSE"
+}
+
+publishing {
+	publications {
+		mavenJava(MavenPublication) {
+			artifact(remapJar) {
+				builtBy remapJar
+			}
+			artifact(sourcesJar) {
+				builtBy remapSourcesJar
+			}
+		}
+	}
+
+	repositories {
+		mavenLocal()
+	}
+}

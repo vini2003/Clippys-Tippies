@@ -1,0 +1,11 @@
+{
+  "required": true,
+  "package": "com.github.vini2003.tippy.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "client": [
+    "MixinScreens"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "tippy",
+  "version": "${version}",
+
+  "name": "Tippy",
+  "description": "Simple, beautiful, and now better - all your Clippy are belong to us.",
+  "authors": [
+    "vini2003"
+  ],
+  "contact": {
+    "sources": "https://github.com/vini2003/Tippy"
+  },
+
+  "license": "GPLv3",
+  "icon": "assets/tippy/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.github.vini2003.tippy.Tippy"
+    ]
+  },
+  "mixins": [
+    "tippy.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.7.0",
+    "fabric": ">=0.4.0",
+    "spinnery": ">=3.0.47"
+  },
+  "suggests": {
+    "flamingo": "*"
+  }
+}
